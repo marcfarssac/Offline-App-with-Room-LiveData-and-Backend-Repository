@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (C) 2017 The Android Open Source Project
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~      http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/extra_details"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/detail_accent_pane_background"
+        android:paddingBottom="@dimen/movie_detail_vertical_padding"
+        android:paddingEnd="@dimen/movie_detail_horizontal_padding"
+        android:paddingLeft="@dimen/movie_detail_horizontal_padding"
+        android:paddingRight="@dimen/movie_detail_horizontal_padding"
+        android:paddingStart="@dimen/movie_detail_horizontal_padding"
+        android:paddingTop="@dimen/movie_detail_vertical_padding">
+
+        <!-- This guideline divides the layout into a left and right half and is used for alignment -->
+        <android.support.constraint.Guideline
+            android:id="@+id/horizontal_middle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.72" />
+
+        <!-- Original title label -->
+        <TextView
+            android:id="@+id/popularity_label"
+            style="@style/DetailLabel"
+            android:text="@string/movie_popularity"
+            android:textAppearance="@style/DetailLabel"
+            app:layout_constraintBottom_toTopOf="@+id/vote_average_label"
+            app:layout_constraintLeft_toLeftOf="@+id/extra_details"
+            app:layout_constraintTop_toTopOf="@+id/extra_details"
+            app:layout_constraintVertical_bias="0.33" />
+
+        <!-- Original title text -->
+        <TextView
+            android:id="@+id/popularity"
+            style="@style/ExtraMovieDetails"
+            app:layout_constraintBottom_toBottomOf="@+id/popularity_label"
+            app:layout_constraintLeft_toLeftOf="@+id/horizontal_middle"
+            tools:text="Popularity"/>
+
+        <!-- Original language label -->
+        <TextView
+            android:id="@+id/vote_average_label"
+            style="@style/DetailLabel"
+            android:text="@string/vote_average"
+            app:layout_constraintBottom_toBottomOf="@+id/extra_details"
+            app:layout_constraintLeft_toLeftOf="@+id/extra_details"
+            app:layout_constraintTop_toTopOf="@+id/extra_details"/>
+
+        <!-- Vote average label -->
+        <TextView
+            android:id="@+id/vote_average"
+            style="@style/ExtraMovieDetails"
+            app:layout_constraintBottom_toBottomOf="@+id/vote_average_label"
+            app:layout_constraintLeft_toLeftOf="@+id/horizontal_middle"
+            tools:text="Vote average"/>
+
+        <!-- Movie genres label -->
+        <TextView
+            android:id="@+id/vote_count_label"
+            style="@style/DetailLabel"
+            android:text="@string/vote_count"
+            app:layout_constraintBottom_toBottomOf="@+id/extra_details"
+            app:layout_constraintLeft_toLeftOf="@+id/extra_details"
+            app:layout_constraintTop_toBottomOf="@+id/vote_average"
+            app:layout_constraintVertical_bias="0.65999997"/>
+
+        <!-- Movie genres text -->
+        <TextView
+            android:id="@+id/vote_count"
+            style="@style/ExtraMovieDetails"
+            app:layout_constraintBottom_toBottomOf="@+id/vote_count_label"
+            app:layout_constraintLeft_toLeftOf="@+id/horizontal_middle"
+            tools:text="Votes"/>
+
+    </android.support.constraint.ConstraintLayout>
+</layout>
