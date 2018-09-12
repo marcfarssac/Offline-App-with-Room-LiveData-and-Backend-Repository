@@ -1,4 +1,4 @@
-MovieDB with Architecture Components
+Architecture Components (MVVM, Room and LiveData) App (GitHub) displaying repository entries synchronized locally with the backend.
 ================================
 ## About
 This app is to browse [the Movie DB catalog](https://www.themoviedb.org) and lets you browse the top 50 movies in popularity descending order, showing the movie poster image where available and inspecting details of the movie in a DetailActivityViewModel. The App retrieves and shows the 50 most popular movies in descending order using the Movie DB API.
