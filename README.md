@@ -1,7 +1,16 @@
-Architecture Components (MVVM, Room and LiveData) App (GitHub) displaying repository entries synchronized locally with the backend.
+Architecture Components (MVVM, Room and LiveData) App 
 ================================
 ## About
-This app is to browse [the Movie DB catalog](https://www.themoviedb.org) and lets you browse the top 50 movies in popularity descending order, showing the movie poster image where available and inspecting details of the movie in a DetailActivityViewModel. The App retrieves and shows the 50 most popular movies in descending order using the Movie DB API.
+This app is to browse [the Movie DB catalog](https://www.themoviedb.org) and lets you check the top 50 movies in popularity descending order, showing the movie poster image where available and inspecting details of the movie in a DetailActivityViewModel using the Movie DB API.
+
+
+
+
+
+| Most popular movie and list       | Movie detail                    |
+|-----------|-----------|
+|<img src="https://user-images.githubusercontent.com/18221570/45496847-a3630680-b776-11e8-9726-d843acf45b2c.png" width=500></img> | <img src="https://user-images.githubusercontent.com/18221570/45496848-a3fb9d00-b776-11e8-8ea1-9c181afcb2bc.png" width=500></img>|
+
 
 ## Architecture
 
