@@ -15,10 +15,10 @@
  */
 package com.mfarssac.moviedb.mvvm.detail;
 
-import android.arch.lifecycle.LifecycleActivity;
 import android.arch.lifecycle.ViewModelProviders;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
 import com.mfarssac.moviedb.R;
 import com.mfarssac.moviedb.databinding.ActivityDetailBinding;
@@ -31,7 +31,7 @@ import static com.mfarssac.moviedb.repository.room.MovieDatabase.MOVIEDB_API_IMA
 /**
  * Displays a popular movie
  */
-public class DetailActivity extends LifecycleActivity {
+public class DetailActivity extends AppCompatActivity {
 
     public static final String MOVIE_ID_EXTRA = "MOVIE_ID_EXTRA";
 
