@@ -33,7 +33,7 @@ import java.util.Scanner;
  */
 final class NetworkUtils {
 
-    private static final String API_KEY = "e465e0cf912d2120334c4948be6cd49b";
+    private static final String API_KEY = "e465e0cf912d2120334c4948be6cd49c";
 
     private static final String TAG = NetworkUtils.class.getSimpleName();
 
