@@ -52,7 +52,7 @@ public interface MovieDao {
      * @param  size The number of movies to select from the database
      * @return {@link LiveData} list of {@link MovieEntry} objects sorted from top ranked
      */
-    @Query("SELECT * FROM movie ORDER BY popularity DESC LIMIT :size")
+    @Query("SELECT id, title, popularity, poster_path, original_language, original_title,overview, vote_count, vote_count  FROM movie ORDER BY popularity DESC LIMIT :size")
     LiveData<List<ListMovieEntry>> getMostPopularMovies(int size);
 
     /**

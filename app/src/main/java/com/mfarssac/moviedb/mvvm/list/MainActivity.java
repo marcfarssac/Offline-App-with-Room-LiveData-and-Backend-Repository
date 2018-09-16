@@ -27,9 +27,21 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ProgressBar;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.GenericTypeIndicator;
+import com.google.firebase.database.ValueEventListener;
 import com.mfarssac.moviedb.R;
 import com.mfarssac.moviedb.mvvm.detail.DetailActivity;
+import com.mfarssac.moviedb.repository.firebase.FirebaseListMovieEntry;
+import com.mfarssac.moviedb.repository.room.ListMovieEntry;
 import com.mfarssac.moviedb.utils.InjectorUtils;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 
 /**
@@ -102,6 +114,44 @@ public class MainActivity extends AppCompatActivity implements
          */
         mMovieAdapter = new MovieAdapter(this, this);
 
+        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = firebaseDatabase.getReference();
+        myRef.child("movies");
+
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                List<ListMovieEntry> movieEntries = new ArrayList<ListMovieEntry>();
+
+                GenericTypeIndicator<List<FirebaseListMovieEntry>> t = new GenericTypeIndicator<List<FirebaseListMovieEntry>>() {};
+                List<FirebaseListMovieEntry> firebaseMovieEntries = dataSnapshot.getValue(t);
+
+                // Map Firebase Database returned MovieEntries into MovieDB Entries
+
+                for (int movie=0; movie<firebaseMovieEntries.size(); movie++)
+                    movieEntries.add(new ListMovieEntry(firebaseMovieEntries.get(movie)));
+
+                // We sort the movies by popularity in descending order
+                Collections.sort(movieEntries, ((o1, o2) -> o2.getPopularity().compareTo(o1.getPopularity())));
+
+                mMovieAdapter.swapMovies(movieEntries);
+                if (mPosition == RecyclerView.NO_POSITION) mPosition = 0;
+                mRecyclerView.smoothScrollToPosition(mPosition);
+
+                if (movieEntries != null && movieEntries.size() != 0)
+                    showMovieDataView();
+                else
+                    showLoading();
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
         /* Setting the adapter attaches it to the RecyclerView in our layout. */
         mRecyclerView.setAdapter(mMovieAdapter);
         MainViewModelFactory factory = InjectorUtils.provideMainActivityViewModelFactory(this.getApplicationContext());
@@ -111,6 +161,8 @@ public class MainActivity extends AppCompatActivity implements
             mMovieAdapter.swapMovies(movieEntries);
             if (mPosition == RecyclerView.NO_POSITION) mPosition = 0;
             mRecyclerView.smoothScrollToPosition(mPosition);
+
+            myRef.setValue(movieEntries);
 
             if (movieEntries != null && movieEntries.size() != 0)
                 showMovieDataView();

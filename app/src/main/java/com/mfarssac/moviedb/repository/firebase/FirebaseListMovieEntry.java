@@ -17,16 +17,16 @@
  *
  */
 
-package com.mfarssac.moviedb.repository.room;
+package com.mfarssac.moviedb.repository.firebase;
 
 
-import com.mfarssac.moviedb.repository.firebase.FirebaseListMovieEntry;
+import com.mfarssac.moviedb.repository.room.MovieEntry;
 
 /**
  * Simplified {@link MovieEntry} which only contains the details needed for the popularity movie list in
  * the {@link com.mfarssac.moviedb.mvvm.list.MovieAdapter}
  */
-public class ListMovieEntry {
+public class FirebaseListMovieEntry {
 
     private int id;
     private String title;
@@ -35,23 +35,13 @@ public class ListMovieEntry {
     private String original_language;
     private String original_title;
     private String overview;
+    private String votes;
     private String vote_count;
 
-    public ListMovieEntry(FirebaseListMovieEntry firebaseListMovieEntry) {
+    public FirebaseListMovieEntry() {}
 
-        this.id = firebaseListMovieEntry.getId();
-        this.title = firebaseListMovieEntry.getTitle();
-        this.popularity = firebaseListMovieEntry.getPopularity();
-        this.poster_path = firebaseListMovieEntry.getPoster_path();
-        this.original_language = firebaseListMovieEntry.getOriginal_language();
-        this.original_title = firebaseListMovieEntry.getOriginal_title();
-        this.overview = firebaseListMovieEntry.getOverview();
-        this.vote_count = firebaseListMovieEntry.getVote_count();
-    }
-
-    public ListMovieEntry(int id, String title, String popularity, String poster_path,
-                          String original_language, String original_title, String overview,
-                          String vote_count) {
+    public FirebaseListMovieEntry(String popularity, String poster_path, String original_language, String title,
+                                  String vote_count, String overview, int id, String original_title) {
         this.id = id;
         this.title = title;
         this.popularity = popularity;
@@ -59,6 +49,7 @@ public class ListMovieEntry {
         this.original_language = original_language;
         this.original_title = original_title;
         this.overview = overview;
+        this.votes = votes;
         this.vote_count = vote_count;
     }
 
@@ -88,6 +79,10 @@ public class ListMovieEntry {
 
     public String getOverview() {
         return overview;
+    }
+
+    public String getVotes() {
+        return votes;
     }
 
     public String getVote_count() {
