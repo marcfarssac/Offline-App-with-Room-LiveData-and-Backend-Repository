@@ -4,7 +4,7 @@ Architecture Components (MVVM, Room and LiveData) App
 This app is to browse [the Movie DB catalog](https://www.themoviedb.org) and lets you check the top 50 movies in popularity descending order, showing the movie poster image where available and inspecting details of the movie in a DetailActivityViewModel using the Movie DB API.
 
 
-### Youtube video: summary and example
+### Youtube video: project summary and example
 
 [![Watch the video](https://user-images.githubusercontent.com/18221570/45615307-6c3d6f80-ba6c-11e8-883b-30e738a0df28.png)](https://www.youtube.com/watch?v=CNqnQtc2vDA&feature=youtu.be)
 
