@@ -14,11 +14,24 @@ This app is to browse [the Movie DB catalog](https://www.themoviedb.org) and let
 
 ## Architecture
 
-The App uses the Architecture components, MVVM, LiveData, Rom and a Repository, fetching data from the backend when there is no local data available. Due to the nature of LiveData, the UI will be updated when the corresponding data will also change.
+The App uses the Architecture components, MVVM, LiveData, Room and a Repository, fetching data from the backend when there is no local data available. Due to the nature of LiveData, the UI will be updated when the corresponding data will also change. 
+Currently implementing a Firebase Realtime Database in the backend that when updated triggers an event that thanks to the LiveData objects refreshes the UI for all clients in Real time.  
 
 ## Software
 
-Android Studio Project.
+Android Studio.
+Firebase Realtime Database.
+
+## Libraries used
+
+- Patterns and frameworks
+    - MVVM (Model-View-ViewModel) using Google's new Architecture Components viewModel, viewModel, LiveData, LifecycleObserver
+    - Clean Architecture with viewModel interacting with UseCases and the latter interacting with local database.
+    
+- Database
+    - Room Persistance Library, part of Google Architecture Components    
+
+- Currently adding latest JetPack software components.
 
 ## Highlights
 
@@ -28,7 +41,7 @@ Android Studio Project.
 
 - Save items as favourites and these retained across app restarts, kill or catalog refresh
 - Share items. The user will be able to select one or more items and share the selection via other Apps.
-- Infinite scroll. The App shall lazy load more items
+- Infinite scroll. The App shall lazy load more items (Paging)
 - Add more filtering options, not only popularity, such as Year, Genre, Keywords.
 - Transition. Ability to provide smooth transitions between screens and states.
 

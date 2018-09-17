@@ -128,14 +128,16 @@ public class MainActivity extends AppCompatActivity implements
                 List<FirebaseListMovieEntry> firebaseMovieEntries = dataSnapshot.getValue(t);
 
                 // Map Firebase Database returned MovieEntries into MovieDB Entries
-                firebaseMovieEntries.forEach(fireBaseMovie -> movieEntries.add(new ListMovieEntry(fireBaseMovie)));
+                if (firebaseMovieEntries !=null) {
+                    firebaseMovieEntries.forEach(fireBaseMovie -> movieEntries.add(new ListMovieEntry(fireBaseMovie)));
 
-                // We sort the movies by popularity in descending order
-                Collections.sort(movieEntries, ((o1, o2) -> o2.getPopularity().compareTo(o1.getPopularity())));
+                    // We sort the movies by popularity in descending order
+                    Collections.sort(movieEntries, ((o1, o2) -> o2.getPopularity().compareTo(o1.getPopularity())));
 
-                mMovieAdapter.swapMovies(movieEntries);
-                if (mPosition == RecyclerView.NO_POSITION) mPosition = 0;
-                mRecyclerView.smoothScrollToPosition(mPosition);
+                    mMovieAdapter.swapMovies(movieEntries);
+                    if (mPosition == RecyclerView.NO_POSITION) mPosition = 0;
+                    mRecyclerView.smoothScrollToPosition(mPosition);
+                }
 
                 if (movieEntries != null && movieEntries.size() != 0)
                     showMovieDataView();
