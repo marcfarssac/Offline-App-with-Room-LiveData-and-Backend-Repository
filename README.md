@@ -8,6 +8,8 @@ This app is to browse [the Movie DB catalog](https://www.themoviedb.org) and let
 
 [![Watch the video](https://user-images.githubusercontent.com/18221570/45615307-6c3d6f80-ba6c-11e8-883b-30e738a0df28.png)](https://www.youtube.com/watch?v=CNqnQtc2vDA&feature=youtu.be)
 
+Watch the [YouTube video](https://www.youtube.com/watch?v=CNqnQtc2vDA&feature=youtu.be) at [https://www.youtube.com/watch?v=CNqnQtc2vDA&feature=youtu.be](https://www.youtube.com/watch?v=CNqnQtc2vDA&feature=youtu.be)
+
 ### Screenshoots
 
 | Most popular movie and list       | Movie detail                    |
